@@ -65,10 +65,74 @@ INSERT INTO product_master_001 values('P07975',	'Lyers Tops',	5,	'Piece',	70,	30
 INSERT INTO product_master_001 values('P08865',	'Skirts',	5,	'Piece',	75,	30,	450,	300);
 
 INSERT INTO salesman_master_001 values('S00001','Aman','A/14', 'Worli','Mumbai', 400002,'Maharashtra' , 3000, 100, 50 ,'Good');
-
 INSERT INTO salesman_master_001 values('S00002', 'Omkar', '65','Nariman','Mumbai',400001,'Maharashtra', 3000 ,200 ,100 ,'Good');
-
 INSERT INTO salesman_master_001 values('S00003' ,'Raj' ,'P-7','Bandra', 'Mumbai' ,400032 ,'Maharashtra',3000, 200, 100, 'Good');
-
 INSERT INTO salesman_master_001 values('S00004','Ashish','A/5','Juhu' ,'Mumbai',400044,'Maharashtra',3500 ,200, 150 ,'Good');
+
+INSERT INTO sales_order_001
+VALUES ('O19001',
+        TO_DATE('12-06-2004','DD-MM-YYYY'),
+        'C00001',
+        'ABC',
+        'S00001',
+        'F',
+        'N',
+        TO_DATE('20-07-2004','DD-MM-YYYY'),
+        'in process');
+
+INSERT INTO sales_order_001
+VALUES ('O19002',
+        TO_DATE('27-06-2002','DD-MM-YYYY'),
+        'C00002',
+        'CDE',
+        'S00001',
+        'P',
+        'N',
+        TO_DATE('25-06-2004','DD-MM-YYYY'),
+        'cancelled');
+
+INSERT INTO sales_order_001
+VALUES ('O46865',
+        TO_DATE('20-02-2002','DD-MM-YYYY'),
+        'C00003',
+        'CDE',
+        'S00003',
+        'F',
+        'Y',
+        TO_DATE('18-02-2004','DD-MM-YYYY'),
+        'fulfilled');
+
+INSERT INTO sales_order_001
+VALUES ('O19003',
+        TO_DATE('07-04-2002','DD-MM-YYYY'),
+        'C00003',
+        'PQR',
+        'S00001',
+        'F',
+        'Y',
+        TO_DATE('03-04-2004','DD-MM-YYYY'),
+        'fulfilled');
+
+INSERT INTO sales_order_001
+VALUES ('O46866',
+        TO_DATE('20-05-2002','DD-MM-YYYY'),
+        'C00004',
+        'CCU',
+        'S00001',
+        'P',
+        'N',
+        TO_DATE('22-05-2004','DD-MM-YYYY'),
+        'fulfilled');
+
+INSERT INTO sales_order_001
+VALUES ('O19008',
+        TO_DATE('26-07-2002','DD-MM-YYYY'),
+        'C00004',
+        'IXB',
+        'S00004',
+        'F',
+        'N',
+        TO_DATE('24-05-2004','DD-MM-YYYY'),
+        'in process');
+
 
