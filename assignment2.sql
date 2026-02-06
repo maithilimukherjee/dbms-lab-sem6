@@ -63,6 +63,7 @@ INSERT INTO product_master_001 values('P07885',	'PuM-Overs',	2.5,	'Piece',	80,	3
 INSERT INTO product_master_001 values('P07965',	'Denim Shirts',	4,	'Piece',	100,	40,	350,	250);
 INSERT INTO product_master_001 values('P07975',	'Lyers Tops',	5,	'Piece',	70,	30,	300,	175);
 INSERT INTO product_master_001 values('P08865',	'Skirts',	5,	'Piece',	75,	30,	450,	300);
+INSERT INTO product_master_001 values('P00001',	'Joggers',	3,	'Piece',	450,	90,	600,	150);
 
 INSERT INTO salesman_master_001 values('S00001','Aman','A/14', 'Worli','Mumbai', 400002,'Maharashtra' , 3000, 100, 50 ,'Good');
 INSERT INTO salesman_master_001 values('S00002', 'Omkar', '65','Nariman','Mumbai',400001,'Maharashtra', 3000 ,200 ,100 ,'Good');
@@ -136,3 +137,24 @@ VALUES ('O19008',
         'in process');
 
 
+insert into sales_order_details_001 values('O19001', 'P00001', 4, 4, 525);
+
+insert into sales_order_details_001 values('O19001', 'P07965', 2, 1, 8400);
+
+insert into sales_order_details_001 values('O19001', 'P07885', 2, 1, 5250);
+
+insert into sales_order_details_001 values('O19002', 'P00001', 10, 0, 525);
+
+insert into sales_order_details_001 values('O46865', 'P07868', 3, 3, 3150);
+
+insert into sales_order_details_001 values('O46865', 'P07885', 3, 1, 5250);
+
+insert into sales_order_details_001 values('O19003', 'P03453', 4, 4, 1050);
+
+insert into sales_order_details_001 values('O46866', 'P07965', 2, 1, 8400);
+
+insert into sales_order_details_001 values('O46866', 'P07975', 1, 0, 1050);
+
+insert into sales_order_details_001 values('O19008', 'P00001', 10, 5, 525);
+
+insert into sales_order_details_001 values('O19008', 'P07975', 5, 3, 1050);
