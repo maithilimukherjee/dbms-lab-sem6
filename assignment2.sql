@@ -136,7 +136,6 @@ VALUES ('O19008',
         TO_DATE('24-05-2004','DD-MM-YYYY'),
         'in process');
 
-
 insert into sales_order_details_001 values('O19001', 'P00001', 4, 4, 525);
 
 insert into sales_order_details_001 values('O19001', 'P07965', 2, 1, 8400);
@@ -158,3 +157,42 @@ insert into sales_order_details_001 values('O46866', 'P07975', 1, 0, 1050);
 insert into sales_order_details_001 values('O19008', 'P00001', 10, 5, 525);
 
 insert into sales_order_details_001 values('O19008', 'P07975', 5, 3, 1050);
+
+SELECT Name FROM Client_Master_001 where Name like '_a%';
+
+SELECT * FROM Client_Master_001 where City like '_a%';
+
+SELECT * FROM Client_Master_001 where City in ('Bombay','Delhi');
+
+SELECT * FROM Client_Master_001 where City in ('Mumbai','Delhi');
+
+SELECT * FROM Client_Master_001 where bal_due>10000;
+
+SELECT * FROM sales_order_details_001 where month(Order_date)=01 ;
+
+SELECT * from sales_order_001 where extract(month from order_date)=1
+
+SELECT * from sales_order_001 where Client_no in ('C00001','C00002');
+
+SELECT * FROM product_master_001 where sell_price>2000 and sell_price<=5000;
+
+UPDATE product_master_001 set sell_price=sell_price*1.15 where sell_price>150;
+
+ALTER TABLE product_master_001 rename column sell_price to new_price;
+
+SELECT * FROM Client_Master_001 where State <> 'Maharashtra';
+
+SELECT COUNT(*) AS TOTAL_ORDERS FROM sales_order_001;
+
+SELECT avg(new_price) as avg_price from product_master_001;
+
+SELECT max(new_price) as maxprice, min(new_price) as minprice from product_master_001;
+
+SELECT COUNT(*) FROM product_master_001 where cost_price>=1500;
+
+SELECT COUNT(*) AS X FROM product_master_001 where new_price>=1500;
+
+SELECT * FROM product_master_001 where Qty_on_hand<Reorder_lvl;
+
+SELECT Order_No, extract(day from Order_date) as Order_day from sales_order_001;
+
