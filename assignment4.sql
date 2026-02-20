@@ -1,0 +1,129 @@
+CREATE TABLE SAILORS47(
+s_id INT PRIMARY KEY,
+s_name VARCHAR(20),
+rating INT,
+age INT
+);
+
+CREATE TABLE BOATS47(
+b_id INT PRIMARY KEY,
+b_name VARCHAR(20),
+color VARCHAR(20)
+);
+
+CREATE TABLE RESERVES47(
+s_id INT,
+b_id INT,
+day VARCHAR(10),
+PRIMARY KEY (s_id, b_id),
+FOREIGN KEY (s_id) REFERENCES SAILORS47(s_id),
+FOREIGN KEY (b_id) REFERENCES BOATS47(b_id)
+);
+
+INSERT INTO SAILORS47 VALUES(1, 'Tarun', 5,25);
+
+INSERT INTO SAILORS47 VALUES(2, 'Rahul', 7,35);
+
+INSERT INTO SAILORS47 VALUES(3, 'Amit', 6,65);
+
+INSERT INTO BOATS47 VALUES(101, 'BoatA', 'red');
+
+INSERT INTO BOATS47 VALUES(102, 'BoatB', 'green');
+
+INSERT INTO BOATS47 VALUES(103, 'BoatC', 'blue');
+
+INSERT INTO RESERVES47 VALUES(1, 101, 'Monday');
+
+INSERT INTO RESERVES47 VALUES(2, 102, 'Tuesday');
+
+INSERT INTO RESERVES47 VALUES(1, 102, 'Monday');
+
+INSERT INTO RESERVES47 VALUES(3, 103, 'Friday');
+
+
+SELECT B.color
+FROM SAILORS47 S
+JOIN RESERVES47 R ON S.s_id = R.s_id
+JOIN BOATS47 B ON R.b_id = B.b_id
+WHERE S.s_name = 'Tarun';
+
+SELECT DISTINCT S.s_id, S.s_name
+FROM SAILORS47 S
+JOIN RESERVES47 R ON S.s_ID = R.s_id
+WHERE R.day = 'Monday';
+
+SELECT b_id, b_name FROM BOATS47 WHERE color IN ('red', '
+green');
+
+ 
+DELETE FROM RESERVES47 WHERE s_id IN(SELECT s_id FROM SAILORS47 WHERE age > 60);
+
+
+CREATE TABLE Teacher47(
+Tid INT PRIMARY KEY,
+Name VARCHAR(20),
+Dept VARCHAR(20)
+);
+
+CREATE TABLE Subject47(
+Subno INT PRIMARY KEY,
+Subtitle VARCHAR(30)
+);
+
+CREATE TABLE TaughtBy47(
+Tid INT,
+Subno INT,
+PRIMARY KEY (Tid, Subno),
+FOREIGN KEY (Tid) REFERENCES Teacher47(Tid),
+FOREIGN KEY (Subno) REFERENCES Subject47(Subno)
+);
+
+
+CREATE TABLE Student47(
+Rollno INT PRIMARY KEY,
+Sname VARCHAR(20),
+City VARCHAR(20)
+);
+
+INSERT INTO Teacher47 VALUES(1, 'Anita', 'Physics');
+
+INSERT INTO Teacher47 VALUES(2, 'Ravi', 'Physics');
+
+INSERT INTO Teacher47 VALUES(3, 'Meena', 'Computer');
+
+INSERT INTO Subject47 VALUES(101, 'Thermodynamics');
+
+INSERT INTO Subject47 VALUES(102, 'DBMS');
+
+INSERT INTO TaughtBy47 VALUES(1, 101);
+
+INSERT INTO TaughtBy47 VALUES(2, 101);
+
+INSERT INTO TaughtBy47 VALUES(3, 102);
+
+INSERT INTO Student47 VALUES(21, 'Rohit', 'Kolkata');
+
+INSERT INTO Student47 VALUES(22, 'Priya', 'Kolkata');
+
+INSERT INTO Student47 VALUES(30, 'Akash', 'Delhi');
+
+SELECT T.Name
+FROM Teacher47 T
+JOIN TaughtBy47 TB ON T.Tid = TB.Tid
+JOIN Subject47 S ON TB.Subno = S.Subno
+WHERE T.Dept = 'Physics'
+AND S.Subtitle = 'Thermodynamics';
+
+UPDATE Subject47
+SET Subtitle = 'RDBMS'
+WHERE Subtitle = 'DBMS';
+
+SELECT * 
+FROM Student47
+WHERE City = 'Kolkata'
+AND Rollno BETWEEN 20 AND 25;
+
+SELECT *
+FROM Student47
+WHERE City = 'Kolkata'
+ORDER BY Rollno DESC;
